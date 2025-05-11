@@ -1,0 +1,1635 @@
+<!DOCTYPE html>
+<html lang="ku" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>چیچی پڵەس - بەرنامەی تەماشای فیلم و دراما</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400&family=IBM+Plex+Sans+Arabic:wght@100;200;300;400;500;600;700&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Nanum+Gothic:wght@400;700;800&family=Noto+Kufi+Arabic:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Space+Grotesk:wght@300..700&family=Vazirmatn:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .app-btn {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        padding: 12px 24px;
+        background: rgba(44, 19, 60, 0.7);
+        border: 1px groove rgb(189, 189, 189);
+        border-radius: 12px;
+        color: #fff;
+        text-decoration: none;
+        font-family: "Iran", Arial, sans-serif;
+        font-weight: 700;
+        font-size: 1rem;
+        box-shadow: 0 2px 8px #0002;
+        transition: background 0.3s, transform 0.2s;
+      }
+
+      .app-btn:hover {
+        background: var(--gold);
+        color: var(--primary-purple);
+        transform: scale(1.02);
+        box-shadow: 0 0 50px 5px #f0fdbf;
+      }
+      .app-btn img {
+        width: 35px;
+        height: 35px;
+      }
+
+      .ibm-plex-sans-arabic-thin {
+        font-family: "IBM Plex Sans Arabic", sans-serif;
+        font-weight: 100;
+        font-style: normal;
+      }
+
+      :root {
+        --primary-purple: #4b2067;
+        --secondary-purple: #6c3483;
+        --accent: #fff;
+        --card-bg: rgba(75, 32, 103, 0.85);
+        --card-border: #fff2;
+        --feature-icon: #f0db4f;
+        --gold: #ffd700;
+        --gold-glow: 0 0 16px 4px #ffd70099, 0 0 32px 8px #ffd70044;
+        --semi-dark-purple: #3a1850;
+      }
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden; /* Prevent horizontal scroll */
+        width: 100%;
+        position: relative;
+      }
+      body {
+        font-family: "IBM Plex Sans Arabic", Arial, sans-serif;
+        color: var(--accent);
+        min-height: 100vh;
+        overflow-x: hidden;
+        position: relative;
+        font-weight: 400;
+        background: var(--primary-purple);
+        scroll-snap-type: y proximity; /* Changed from mandatory to proximity for smoother scrolling */
+        overflow-y: scroll;
+        width: 100%;
+      }
+      /* Hero background image and overlay only for hero-section */
+      .hero-section {
+        position: relative;
+      }
+      .hero-section::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -2;
+        background: url("background.jpg") center center / cover no-repeat fixed;
+        opacity: 1;
+        pointer-events: none;
+      }
+      .hero-section::after {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+        background: var(--primary-purple);
+        opacity: 0.88;
+        pointer-events: none;
+      }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+        width: 100%;
+        box-sizing: border-box;
+      }
+      .section {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        scroll-snap-align: start;
+        scroll-snap-stop: normal; /* Changed from always to normal */
+        width: 100%;
+        overflow-x: hidden;
+      }
+      .hero-section {
+        background: transparent;
+        height: 100vh;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 60px;
+        width: 100%;
+        overflow-x: hidden;
+        padding: 0;
+        position: relative;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+      }
+      .hero-image-col {
+        flex: 1 1 60%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        margin: 0;
+      }
+      .hero-image {
+        width: 520px;
+        max-width: 100%;
+        border-radius: 28px;
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+        object-fit: cover;
+        transition: width 0.3s;
+      }
+      .hero-content-col {
+        flex: 1 1 40%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        gap: 0;
+        max-width: 480px;
+        padding: 0;
+        margin: 0;
+      }
+      .hero-title {
+        font-size: 4.5rem; /* Increased from 3rem */
+        font-family: "IBM Plex Sans Arabic", Arial, sans-serif;
+        font-weight: 900;
+        color: var(--accent);
+        margin-bottom: 24px;
+        letter-spacing: 1px;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        background: linear-gradient(45deg, #ffd700, #ffffff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        position: relative;
+        animation: titleGlow 3s ease-in-out infinite;
+        transform-origin: center;
+        transform: scale(1.02);
+      }
+
+      @keyframes titleGlow {
+        0% {
+          text-shadow: 0 0 20px rgba(255, 215, 0, 0.3),
+                       0 0 40px rgba(255, 215, 0, 0.2);
+          transform: scale(1.02);
+        }
+        50% {
+          text-shadow: 0 0 30px rgba(255, 215, 0, 0.5),
+                       0 0 60px rgba(255, 215, 0, 0.3);
+          transform: scale(1.05);
+        }
+        100% {
+          text-shadow: 0 0 20px rgba(255, 215, 0, 0.3),
+                       0 0 40px rgba(255, 215, 0, 0.2);
+          transform: scale(1.02);
+        }
+      }
+
+      @media (max-width: 900px) {
+        .hero-title {
+          font-size: 3.8rem;
+          letter-spacing: 0.8px;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .hero-title {
+          font-size: 3.2rem;
+          letter-spacing: 0.5px;
+        }
+      }
+      .hero-desc {
+        font-size: 1.3rem;
+        color: #e0e0e0;
+        margin-bottom: 32px;
+        line-height: 1.7;
+        font-family: "IBM Plex Sans Arabic", Arial, sans-serif;
+        font-weight: 300;
+      }
+      .app-buttons {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(200px, 1fr));
+        gap: 18px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        justify-content: center;
+        max-width: 100%;
+        padding: 0 10px;
+      }
+
+      @media (max-width: 600px) {
+        .app-buttons {
+          grid-template-columns: repeat(2, minmax(140px, 1fr));
+          gap: 12px;
+        }
+      }
+      .app-btn {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 24px;
+        background: var(--secondary-purple);
+        border: none;
+        border-radius: 12px;
+        color: #fff;
+        text-decoration: none;
+        font-family: "IBM Plex Sans Arabic", Arial, sans-serif;
+        font-weight: 700;
+        font-size: 1rem;
+        box-shadow: 0 2px 8px #0002;
+        transition: background 0.2s, transform 0.2s;
+      }
+      .app-btn:hover {
+        background: var(--gold);
+        color: var(--primary-purple);
+        transform: translateY(-2px) scale(1.04);
+      }
+      .app-btn img {
+        width: 22px;
+        height: 22px;
+      }
+      /* Section Dock/Divider */
+      .section-dock {
+        display: none;
+      }
+      /* Social & Screenshot Section */
+      .social-screenshot-section {
+        width: 100%;
+        height: 100vh; /* Changed from min-height to height */
+        background: #2d1a3a;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 7vh;
+        position: relative;
+        scroll-snap-align: start;
+        scroll-snap-stop: normal;
+        overflow: hidden; /* Added to prevent content overflow */
+      }
+      .screenshot-heading {
+        font-size: 2.2rem;
+        color: var(--gold);
+        font-family: "IBM Plex Sans Arabic", Arial, sans-serif;
+        font-weight: 800;
+        margin-bottom: 12px;
+        letter-spacing: 0.5px;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        background: linear-gradient(45deg, var(--gold), #fff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .screenshot-desc {
+        color: #e0e0e0;
+        font-size: 1.1rem;
+        margin-bottom: 24px;
+        font-family: "IBM Plex Sans Arabic", Arial, sans-serif;
+        font-weight: 300;
+        text-align: center;
+        max-width: 500px;
+        line-height: 1.6;
+        opacity: 0.9;
+        padding: 0 20px;
+      }
+      .social-section {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 0 32px 0;
+        padding: 0;
+      }
+      .social-links {
+        display: flex;
+        gap: 22px;
+      }
+      .social-links a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: rgba(75, 32, 103, 0.1);
+        border-radius: 50%;
+        transition: background 0.2s, box-shadow 0.2s;
+      }
+      .social-links a:hover {
+        background: var(--gold);
+        box-shadow: 0 2px 8px #ffd70055;
+      }
+      .social-links svg {
+        width: 22px;
+        height: 22px;
+        display: block;
+      }
+      .screenshot-carousel {
+        width: 100%;
+        height: calc(100vh - 200px);
+        min-height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .screenshot-track {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        animation: marquee 7s infinite linear;
+        will-change: transform;
+        width: max-content;
+      }
+      .screenshot-carousel:hover .screenshot-track {
+        animation-play-state: paused;
+      }
+
+      @keyframes marquee {
+        0% {
+          left: 100%;
+        }
+
+        100% {
+          left: 0;
+          transform: translateX(-100);
+        }
+      }
+
+      .screenshot-carousel img {
+        width: auto;
+        height: 100%;
+        object-fit: contain;
+        border-radius: 18px;
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+      }
+      .screenshot-carousel img:hover {
+        border: 2px solid #ffd700;
+        box-shadow: 0 0 0 4px #ffd70033, 0 4px 24px #0002;
+      }
+      /* Modal styles */
+      .screenshot-modal {
+        display: none;
+        position: fixed;
+        z-index: 9999;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(30, 19, 43, 0.95);
+        align-items: center;
+        justify-content: center;
+        transition: opacity 0.2s;
+      }
+      .screenshot-modal.active {
+        display: flex;
+      }
+      .screenshot-modal-content {
+        position: relative;
+        max-width: 90vw;
+        max-height: 90vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .screenshot-modal img {
+        max-width: 90vw;
+        max-height: 80vh;
+        border-radius: 18px;
+        box-shadow: 0 8px 32px #0008;
+        background: #fff;
+      }
+      .screenshot-modal-close {
+        position: absolute;
+        top: -32px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(44, 19, 60, 0.8);
+        color: #ffd700;
+        border: none;
+        border-radius: 50%;
+        width: 36px;
+        height: 36px;
+        font-size: 2rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 8px #0002;
+        transition: background 0.2s, color 0.2s;
+      }
+      .screenshot-modal-close:hover {
+        background: #ffd700;
+        color: #2d1a3a;
+      }
+      .plans-section {
+        background: var(--semi-dark-purple);
+        padding: 60px 0 30px 0;
+      }
+      .section-header {
+        text-align: center;
+        margin-bottom: 40px;
+        width: 100%;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .section-header h2 {
+        font-size: 2.2rem;
+        color: var(--gold);
+        font-family: "IBM Plex Sans Arabic", Arial, sans-serif;
+        font-weight: 800;
+        margin-bottom: 12px;
+        letter-spacing: 0.5px;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        background: linear-gradient(45deg, var(--gold), #fff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        line-height: 1.3;
+      }
+
+      @media (max-width: 900px) {
+        .section-header h2 {
+          font-size: 2rem;
+          margin-bottom: 10px;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .section-header h2 {
+          font-size: 1.8rem;
+          margin-bottom: 8px;
+        }
+      }
+      .section-header p {
+        color: #e0e0e0;
+        font-size: 1.1rem;
+        margin-bottom: 24px;
+        font-family: "IBM Plex Sans Arabic", Arial, sans-serif;
+        font-weight: 300;
+        text-align: center;
+        max-width: 500px;
+        line-height: 1.6;
+        opacity: 0.9;
+        padding: 0 20px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      @media (max-width: 900px) {
+        .section-header p {
+          font-size: 1.05rem;
+          padding: 0 16px;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .section-header p {
+          font-size: 1rem;
+          padding: 0 12px;
+        }
+      }
+      .package-details {
+        list-style: none;
+        margin: 0 auto;
+        padding: 0;
+        max-width: 400px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+      }
+      .package-details li {
+        color: #cfcfcf;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.95rem;
+        font-family: "IBM Plex Sans Arabic", Arial, sans-serif;
+        font-weight: 300;
+        letter-spacing: 0.1px;
+        background: rgba(255, 215, 0, 0.1);
+        padding: 6px 16px;
+        border-radius: 20px;
+      }
+      .package-details li::before {
+        content: "✓";
+        color: var(--gold);
+        font-weight: bold;
+      }
+      .plans {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 28px;
+        margin-top: 18px;
+        padding-top: 78px;
+        justify-items: center;
+      }
+      .plan {
+        background: var(--card-bg);
+        border-radius: 20px;
+        padding: 32px 18px 24px 18px;
+        border: 1.5px solid var(--card-border);
+        box-shadow: 0 4px 24px #0002;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transition: transform 0.2s, box-shadow 0.2s;
+        position: relative;
+        font-family: "IBM Plex Sans Arabic", Arial, sans-serif;
+        font-weight: 400;
+        min-width: 0;
+        max-width: 300px;
+      }
+      .plan h3 {
+        font-size: 1.35rem;
+        color: var(--accent);
+        font-family: "IBM Plex Sans Arabic", Arial, sans-serif;
+        font-weight: 900;
+        margin-bottom: 8px;
+        letter-spacing: 0.5px;
+        text-align: center;
+      }
+      .price {
+        font-size: 2.2rem;
+        font-family: "IBM Plex Sans Arabic", Arial, sans-serif;
+        font-weight: 900;
+        margin-bottom: 16px;
+        color: var(--gold);
+        text-align: center;
+        letter-spacing: 0.5px;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        position: relative;
+        padding: 8px 0;
+      }
+      .price::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 2px;
+        background: linear-gradient(
+          90deg,
+          rgba(255, 215, 0, 0) 0%,
+          rgba(255, 215, 0, 0.5) 50%,
+          rgba(255, 215, 0, 0) 100%
+        );
+      }
+      .price span {
+        font-size: 1.1rem;
+        color: #e0e0e0;
+        font-family: "IBM Plex Sans Arabic", Arial, sans-serif;
+        font-weight: 300;
+        margin-right: 4px;
+        vertical-align: super;
+      }
+      .features {
+        list-style: none;
+        margin: 8px 0 14px 0;
+        padding: 0;
+        width: 100%;
+      }
+      .features li {
+        margin: 3px 0;
+        color: #cfcfcf;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.88rem;
+        font-family: "IBM Plex Sans Arabic", Arial, sans-serif;
+        font-weight: 300;
+        letter-spacing: 0.1px;
+      }
+      .features li em {
+        font-style: italic;
+        font-family: "IBM Plex Sans Arabic", Arial, sans-serif;
+        font-weight: 400;
+      }
+      .features li strong {
+        font-weight: 700;
+        font-family: "IBM Plex Sans Arabic", Arial, sans-serif;
+      }
+      .features li::before {
+        content: "✓";
+        color: var(--feature-icon);
+        font-weight: bold;
+      }
+      .subscribe-btn {
+        display: inline-block;
+        width: 80%;
+        padding-inline: 8px;
+        padding-bottom: 8px;
+        background: linear-gradient(45deg, #6c3483, #4b2067);
+        color: #fff;
+        text-decoration: none;
+        border-radius: 16px;
+        text-align: center;
+        font-family: "IBM Plex Sans Arabic", Arial, sans-serif;
+        font-weight: 700;
+        font-size: 1.08rem;
+        transition: background 0.2s, transform 0.2s;
+      }
+      .subscribe-btn:hover {
+        background: linear-gradient(45deg, #ffd700, #ffd700cc);
+        color: var(--primary-purple);
+        transform: scale(1.04);
+      }
+      .plan .payment-indicator {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        flex-wrap: wrap;
+        margin-bottom: 6px;
+        background: rgba(255, 215, 0, 0.03);
+        border-radius: 12px;
+        padding: 8px;
+        border: 1px solid rgba(255, 215, 0, 0.08);
+      }
+      .payment-title {
+        color: #b8b8b8;
+        font-size: 0.9em;
+        text-align: center;
+        margin-bottom: 8px;
+        font-weight: 300;
+        letter-spacing: 0.5px;
+      }
+      .payment-pills {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 6px;
+        justify-content: center;
+        margin-top: 2px;
+        margin-bottom: 2px;
+      }
+      .payment-pill {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+        background: rgba(255, 215, 0, 0.05);
+        border: 1px solid rgba(255, 215, 0, 0.12);
+        border-radius: 8px;
+        padding: 6px 8px;
+        font-size: 0.9em;
+        font-family: "IBM Plex Sans Arabic", Arial, sans-serif;
+        color: #b8b8b8;
+        font-weight: 300;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+        min-width: 0;
+        transition: background 0.2s, color 0.2s;
+      }
+      .payment-pill img {
+        width: 18px;
+        height: 18px;
+        object-fit: contain;
+        margin-left: 2px;
+        opacity: 0.85;
+      }
+      .tax-info {
+        font-size: 0.8em;
+        color: #a0a0a0;
+        margin-top: 4px;
+        margin-bottom: 0;
+        white-space: nowrap;
+        display: block;
+        text-align: center;
+        width: 100%;
+        font-weight: 500;
+        letter-spacing: 0.1px;
+        opacity: 0.9;
+      }
+      /* Plan Shine & Animation */
+      .plan {
+        border: 2.5px solid transparent;
+        box-shadow: none;
+        position: relative;
+      }
+      .plan::before {
+        content: attr(data-plan);
+        position: absolute;
+        top: -18px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-family: "IBM Plex Sans Arabic", Arial, sans-serif;
+        font-weight: 700;
+        font-size: 1rem;
+        padding: 4px 18px;
+        border-radius: 16px;
+        z-index: 2;
+        white-space: nowrap;
+      }
+      .plan.weekly {
+        border: 2.5px solid var(--gold);
+        box-shadow: var(--gold-glow);
+        animation: shine-move 2.5s infinite alternate;
+      }
+      .plan.weekly::before {
+        content: "هەفتانە";
+        background: linear-gradient(90deg, #ffd700 60%, #fffbe6 100%);
+        color: #4b2067;
+        box-shadow: 0 2px 8px #ffd70055;
+      }
+      .plan.monthly::before {
+        content: "مانگانە";
+        background: linear-gradient(90deg, #ffffff 60%, #f0f0f0 100%);
+        color: #4b2067;
+        box-shadow: 0 2px 8px rgba(255, 255, 255, 0.3);
+      }
+      .plan.semiannual::before {
+        content: "شەش مانگ";
+        background: linear-gradient(90deg, #ffffff 60%, #f0f0f0 100%);
+        color: #4b2067;
+        box-shadow: 0 2px 8px rgba(255, 255, 255, 0.3);
+      }
+      .plan.yearly::before {
+        content: "ساڵانە";
+        background: linear-gradient(90deg, #ffffff 60%, #f0f0f0 100%);
+        color: #4b2067;
+        box-shadow: 0 2px 8px rgba(255, 255, 255, 0.3);
+      }
+      .plan.weekly .price {
+        color: var(--gold);
+        text-shadow: 0 2px 8px rgba(255, 215, 0, 0.3);
+      }
+      .plan.weekly .price::after {
+        background: linear-gradient(
+          90deg,
+          rgba(255, 215, 0, 0) 0%,
+          rgba(255, 215, 0, 0.8) 50%,
+          rgba(255, 215, 0, 0) 100%
+        );
+      }
+      .plan:not(.weekly) .price {
+        color: #ffffff;
+        text-shadow: 0 2px 8px rgba(255, 255, 255, 0.2);
+      }
+      .plan:not(.weekly) .price::after {
+        background: linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0) 0%,
+          rgba(255, 255, 255, 0.5) 50%,
+          rgba(255, 255, 255, 0) 100%
+        );
+      }
+      .swiper {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        margin: 0 auto;
+      }
+      .swiper-wrapper {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .swiper-slide {
+        width: auto;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 18px;
+        overflow: hidden;
+      }
+
+      .swiper-slide img {
+        width: auto;
+        height: 100%;
+        object-fit: contain;
+        border-radius: 18px;
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+      }
+
+      .swiper-button-next,
+      .swiper-button-prev {
+        color: white;
+      }
+
+      @keyframes shine-move {
+        0% {
+          box-shadow: 0 0 16px 4px #ffd70099, 0 0 32px 8px #ffd70044;
+          transform: translateY(0) scale(1.01);
+        }
+        50% {
+          box-shadow: 0 0 32px 12px #ffd700cc, 0 0 64px 16px #ffd70066;
+          transform: translateY(-2px) scale(1.02);
+        }
+        100% {
+          box-shadow: 0 0 16px 4px #ffd70099, 0 0 32px 8px #ffd70044;
+          transform: translateY(0) scale(1.01);
+        }
+      }
+      /* Contact Us */
+      .contact {
+        text-align: center;
+        margin: 40px 0 20px 0;
+        color: #fff;
+        font-size: 1.1rem;
+        font-family: "IBM Plex Sans Arabic", Arial, sans-serif;
+        font-weight: 400;
+      }
+      .contact a {
+        color: var(--gold);
+        text-decoration: underline;
+        margin-right: 8px;
+        font-family: "IBM Plex Sans Arabic", Arial, sans-serif;
+        font-weight: 700;
+      }
+
+      /* Vertical Navigation */
+      .vertical-nav {
+        position: fixed;
+        top: 50%;
+        right: 20px;
+        transform: translateY(-50%);
+        z-index: 100;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        background: rgba(44, 19, 60, 0.7);
+        border-radius: 16px;
+        padding: 20px 10px;
+        box-shadow: 0 4px 24px #0002;
+        align-items: center;
+        backdrop-filter: blur(8px);
+      }
+      .vertical-nav a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+        color: #fff;
+        text-decoration: none;
+        font-size: 0.85rem;
+        font-family: "IBM Plex Sans Arabic", Arial, sans-serif;
+        font-weight: 400;
+        opacity: 0.7;
+        transition: color 0.2s, opacity 0.2s, transform 0.2s;
+        padding: 12px 3px;
+        position: relative;
+      }
+      .vertical-nav a:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 20px;
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0) 0%,
+          rgba(255, 255, 255, 0.15) 50%,
+          rgba(255, 255, 255, 0) 100%
+        );
+      }
+      .vertical-nav a.active,
+      .vertical-nav a:focus {
+        color: var(--gold);
+        opacity: 1;
+        font-weight: 700;
+        transform: scale(1.06);
+      }
+      .vertical-nav svg {
+        width: 18px;
+        height: 18px;
+        display: block;
+      }
+
+      /* Hero Social Area */
+      .hero-social {
+        position: unset;
+        margin-top: 32px;
+        width: 100%;
+        max-width: 400px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 10;
+        background: rgba(44, 19, 60, 0.4);
+        border-radius: 20px;
+        padding: 12px 28px;
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        margin-left: auto;
+        margin-right: auto;
+        box-sizing: border-box;
+      }
+
+      .hero-social:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+        background: rgba(44, 19, 60, 0.5);
+      }
+
+      @media (max-width: 900px) {
+        .hero-social {
+          width: auto;
+          min-width: 280px;
+          max-width: 90%;
+          margin: 24px auto;
+          padding: 12px 24px;
+        }
+
+        .hero-social .social-links {
+          display: flex;
+          gap: 32px;
+          justify-content: center;
+          width: 100%;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .hero-social {
+          min-width: 260px;
+          max-width: 85%;
+          margin: 20px auto;
+          padding: 10px 20px;
+        }
+
+        .hero-social .social-links {
+          gap: 24px;
+        }
+      }
+
+      .hero-social .social-links {
+        display: flex;
+        gap: 32px;
+      }
+
+      .hero-social .social-links a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 50%;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .hero-social .social-links a:hover {
+        background: var(--gold);
+        transform: translateY(-2px) scale(1.1);
+        box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
+        border-color: transparent;
+      }
+
+      /* Brand colors for icons with modern opacity */
+      .hero-social .social-links .instagram svg {
+        stroke: rgba(225, 48, 108, 0.9);
+        transition: stroke 0.3s ease;
+      }
+
+      .hero-social .social-links .telegram svg {
+        stroke: rgba(0, 136, 204, 0.9);
+        transition: stroke 0.3s ease;
+      }
+
+      .hero-social .social-links .tiktok svg {
+        stroke: rgba(37, 244, 238, 0.9);
+        transition: stroke 0.3s ease;
+      }
+
+      .hero-social .social-links .facebook svg {
+        stroke: rgba(24, 119, 243, 0.9);
+        transition: stroke 0.3s ease;
+      }
+
+      .hero-social .social-links a:hover svg {
+        stroke: var(--primary-purple);
+      }
+
+      .hero-social .social-links svg {
+        width: 18px;
+        height: 18px;
+        display: block;
+        fill: none;
+        stroke-width: 2;
+      }
+
+      /* Add margin to app buttons container */
+      .app-buttons {
+        margin-bottom: 24px;
+      }
+
+      /* Media Queries */
+      @media (max-width: 900px) {
+        .hero-section {
+          flex-direction: column;
+          gap: 32px;
+          padding: 40px 0; /* Removed horizontal padding */
+          height: 100vh;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          margin: 0;
+          left: 0;
+          right: 0;
+        }
+        
+        .hero-image-col {
+          flex: 0 0 auto;
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 0;
+          margin: 0;
+        }
+        
+        .hero-image {
+          width: 100%;
+          max-width: 400px;
+          transform: none;
+          margin: 0;
+          padding: 0;
+        }
+        
+        .hero-content-col {
+          flex: 0 0 auto;
+          width: 100%;
+          max-width: 500px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          padding: 0 20px; /* Added padding to content only */
+          margin: 0;
+          box-sizing: border-box;
+        }
+        
+        .hero-title {
+          font-size: 2.8rem;
+          text-align: center;
+          margin-bottom: 20px;
+          width: 100%;
+        }
+        
+        .hero-desc {
+          font-size: 1.2rem;
+          text-align: center;
+          padding: 0;
+          margin-bottom: 24px;
+          max-width: 90%;
+          width: 100%;
+        }
+        .plans {
+          grid-template-columns: 1fr 1fr;
+          gap: 14px;
+        }
+        .plan {
+          max-width: 98vw;
+          min-width: 0;
+          padding: 18px 6px 14px 6px;
+        }
+        .screenshot-carousel {
+          height: calc(100vh - 140px);
+        }
+        .screenshot-carousel img {
+          height: calc(100vh - 240px);
+          min-height: 180px;
+          /* max-height: 320px; */
+        }
+
+        /* Convert vertical nav to horizontal nav */
+        .vertical-nav {
+          position: fixed;
+          top: auto;
+          bottom: 0;
+          right: 0;
+          left: 0;
+          transform: none;
+          z-index: 100;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-around;
+          gap: 0;
+          background: rgba(44, 19, 60, 0.85);
+          border-radius: 16px 16px 0 0;
+          padding: 12px 10px;
+          box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.2);
+          backdrop-filter: blur(8px);
+        }
+
+        .vertical-nav a {
+          font-size: 0.8rem;
+          padding: 8px 6px;
+        }
+
+        .vertical-nav a:not(:last-child)::after {
+          content: "";
+          position: absolute;
+          bottom: auto;
+          right: 0;
+          top: 50%;
+          left: auto;
+          transform: translateY(-50%);
+          width: 1px;
+          height: 20px;
+          background: linear-gradient(
+            0deg,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0.15) 50%,
+            rgba(255, 255, 255, 0) 100%
+          );
+        }
+      }
+
+      @media (max-width: 600px) {
+        html,
+        body {
+          font-size: 15px;
+        }
+        .section-header h2 {
+          font-size: 1.5rem;
+          margin-bottom: 10px;
+        }
+        .plan {
+          padding: 12px 2px 10px 2px;
+          max-width: 100vw;
+          margin-block: 10px;
+        }
+        .plans {
+          padding-bottom: 8px;
+          grid-template-columns: 1fr;
+          gap: 8px;
+          overflow-x: auto;
+        }
+        .screenshot-carousel {
+          height: calc(100vh - 100px);
+        }
+        .screenshot-carousel img {
+          height: calc(100vh - 300px);
+          min-height: 120px;
+        }
+      }
+    </style>
+    <script>
+      // Dynamic nav highlighting
+      document.addEventListener("DOMContentLoaded", function () {
+        const navLinks = document.querySelectorAll(".vertical-nav a");
+        const sections = [
+          document.querySelector(".hero-section"),
+          document.querySelector(".social-screenshot-section"),
+          document.querySelector(".plans-section"),
+        ];
+        function onScroll() {
+          let idx = 0;
+          const scrollY = window.scrollY + window.innerHeight / 3;
+          for (let i = 0; i < sections.length; i++) {
+            if (sections[i].offsetTop <= scrollY) idx = i;
+          }
+          navLinks.forEach((link, i) => {
+            if (i === idx) link.classList.add("active");
+            else link.classList.remove("active");
+          });
+        }
+        window.addEventListener("scroll", onScroll);
+        onScroll();
+        // Smooth scroll
+        navLinks.forEach((link, i) => {
+          link.addEventListener("click", function (e) {
+            e.preventDefault();
+            sections[i].scrollIntoView({ behavior: "smooth" });
+          });
+        });
+      });
+      // Screenshot modal and hover highlight
+      document.addEventListener("DOMContentLoaded", function () {
+        // Modal logic
+        const modal = document.createElement("div");
+        modal.className = "screenshot-modal";
+        modal.innerHTML =
+          '<div class="screenshot-modal-content"><button class="screenshot-modal-close" title="بگرە">&times;</button><img src="" alt="Screenshot" /></div>';
+        document.body.appendChild(modal);
+        const modalImg = modal.querySelector("img");
+        const closeBtn = modal.querySelector(".screenshot-modal-close");
+        const screenshotTrack = document.querySelector(".screenshot-track");
+
+        function openModal(src) {
+          modalImg.src = src;
+          modal.classList.add("active");
+          // Pause the animation when modal is open
+          if (screenshotTrack) {
+            screenshotTrack.style.animationPlayState = "paused";
+          }
+        }
+
+        function closeModal() {
+          modal.classList.remove("active");
+          // Resume the animation when modal is closed
+          if (screenshotTrack) {
+            screenshotTrack.style.animationPlayState = "running";
+          }
+          setTimeout(() => {
+            modalImg.src = "";
+          }, 200);
+        }
+
+        closeBtn.addEventListener("click", closeModal);
+        modal.addEventListener("click", function (e) {
+          if (e.target === modal) closeModal();
+        });
+        document.querySelectorAll(".screenshot-carousel img").forEach((img) => {
+          img.addEventListener("click", () => openModal(img.src));
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <nav class="vertical-nav">
+      <a href="#" title="سەرەتا">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+          <polyline points="9 22 9 12 15 12 15 22" />
+        </svg>
+        <span>سەرەتا</span>
+      </a>
+      <a href="#" title="وێنەکان">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+          <circle cx="8.5" cy="8.5" r="1.5" />
+          <polyline points="21 15 16 10 5 21" />
+        </svg>
+        <span>وێنەکان</span>
+      </a>
+      <a href="#" title="نرخ">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <line x1="12" y1="1" x2="12" y2="23" />
+          <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+        </svg>
+        <span>نرخ</span>
+      </a>
+    </nav>
+    <section class="section hero-section">
+      <div class="hero-image-col">
+        <img class="hero-image" src="./hero.jpg" alt="چیچی پڵەس" />
+      </div>
+
+      <div class="hero-content-col">
+        <div class="hero-title">چیچی پڵەس</div>
+        <div class="hero-desc">
+          نوێترین فیلم و زنجیره، باشترین کوالێتی، بی ڕیکلامی. جیهانێک له‌ فیلم و
+          دراما بە زمانی کوردی، بە بێ ڕیکلام و بە باشترین کوالێتی.
+        </div>
+        <div class="app-buttons">
+          <a
+            href="https://app.chichicinema.vip/chichi-final.apk"
+            class="app-btn"
+          >
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_Play_2022_icon.svg/640px-Google_Play_2022_icon.svg.png"
+              alt="Android"
+            />
+            <span>داگرتن بۆ ئەندڕۆید</span>
+          </a>
+          <a href="https://testflight.apple.com/join/QYYqe4Sq" class="app-btn">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/6/67/App_Store_%28iOS%29.svg"
+              alt="iOS"
+            />
+            <span>داگرتن بۆ ئایۆس</span>
+          </a>
+        </div>
+        <div class="hero-social">
+          <div class="social-links">
+            <a
+              href="#"
+              class="instagram"
+              title="Instagram"
+              target="_blank"
+              rel="noopener"
+            >
+              <svg viewBox="0 0 24 24">
+                <rect x="3" y="3" width="18" height="18" rx="5" />
+                <circle cx="12" cy="12" r="5" />
+                <circle cx="17" cy="7" r="1" />
+              </svg>
+            </a>
+            <a
+              href="#"
+              class="telegram"
+              title="Telegram"
+              target="_blank"
+              rel="noopener"
+            >
+              <svg viewBox="0 0 24 24"><path d="M4 12l16-6-4 12-4-3-4 3z" /></svg>
+            </a>
+            <a
+              href="#"
+              class="tiktok"
+              title="TikTok"
+              target="_blank"
+              rel="noopener"
+            >
+              <svg viewBox="0 0 24 24">
+                <path d="M9 17a4 4 0 1 1 4-4V5h3a3 3 0 0 0 3 3" />
+              </svg>
+            </a>
+            <a
+              href="#"
+              class="facebook"
+              title="Facebook"
+              target="_blank"
+              rel="noopener"
+            >
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M17 2h-3a4 4 0 0 0-4 4v3H7v4h3v9h4v-9h3l1-4h-4V6a1 1 0 0 1 1-1h3z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+
+    </section>
+    <section class="social-screenshot-section">
+      <div class="screenshot-heading">وێنەکان و زانیاری</div>
+      <div class="screenshot-desc">
+        ئەمە گالێرییەکە لە بەرنامەکەمان کە پیشان دەدات چۆن بەرنامەکە کار دەکات
+      </div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <img class="swiper-slide" src="screenshot1.png" alt="Screenshot 1" />
+          <img class="swiper-slide" src="screenshot2.png" alt="Screenshot 2" />
+          <img class="swiper-slide" src="screenshot3.png" alt="Screenshot 3" />
+          <img class="swiper-slide" src="screenshot4.png" alt="Screenshot 4" />
+
+          <img class="swiper-slide" src="screenshot1.png" alt="Screenshot 1" />
+          <img class="swiper-slide" src="screenshot2.png" alt="Screenshot 2" />
+          <img class="swiper-slide" src="screenshot3.png" alt="Screenshot 3" />
+          <img class="swiper-slide" src="screenshot4.png" alt="Screenshot 4" />
+        </div>
+      </div>
+      <div class="swiper-button-next"></div>
+    </section>
+
+    <section class="section plans-section">
+      <div class="container">
+        <div class="section-header">
+          <div class="screenshot-heading">پلانت هەلبژێرە</div>
+          <div class="screenshot-desc">
+            هەموو پلانه‌کان: نوێترین فیلم و زنجیره، باشترین کوالێتی، بێ ڕیکلام،
+            هەموو دراما و فیلمی تورکی و عەرەبی بە زمانی کوردی.
+          </div>
+          <ul class="package-details">
+            <li>هەموو فیلم و دراما</li>
+            <li>زمانی کوردی</li>
+            <li>بێ ڕیکلام</li>
+            <li>باشترین کوالێتی</li>
+            <li>نوێترین فیلم و زنجیره</li>
+          </ul>
+        </div>
+        <div class="plans">
+          <div class="plan weekly" data-plan="هەفتانە">
+            <div class="price">١,٥٠٠ <span>د.ع</span></div>
+            <div class="payment-indicator">
+              <div class="payment-title">پارەدان لە ڕێگەی</div>
+              <div class="payment-pills">
+                <span class="payment-pill"
+                  ><img
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAAyElEQVR4Ae2WsQ0DIQxFr7jqahpWYIb0aWgzAbWlDJQ6EqMwDDMkLlx8uUBEBorcFa8yunc2fMR2f8alrBdewu392ltYhVpGzKeDytAIYeqQIdkq9ExVnQTFjSmwhsyHBj8ohMaaahA295NUPULtGBILGR9Ky0whxqSofXX4M5ZDczBe4aSWVbdR6jQjhxnHCOS5OZSOVXTKKKFjvAbW4ojJLPwxr3WV8AFd7n8pHDNSITTQF3iyC/vJ5uB3Upk07YmBXK+2cwm/ONnY/wcsZLIAAAAASUVORK5CYII="
+                    alt="FIB"
+                    title="FIB"
+                  />FIB</span
+                >
+                <span class="payment-pill"
+                  ><img
+                    src="https://encrypted-tbn2.gstatic.com/faviconV2?url=https://helpdesk.fast-pay.iq&client=VFE&size=64&type=FAVICON&fallback_opts=TYPE,SIZE,URL&nfrp=2"
+                    alt="Fastpay"
+                    title="Fastpay"
+                  />Fastpay</span
+                >
+                <span class="payment-pill"
+                  ><img
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y+mAAAAKlBMVEVHcEwAV7cAVrYAVrcAV7gAV7cAV7cAVrYAVrcAV7cAV7cAV7cAV7cAV7cnTKaJAAAADnRSTlMA/gwp782fGFTfbrM7iMAxh4oAAAFVSURBVCiRbVJbksMwCIvBBozh/tddYSdpd2f5SkcueqDruofYUmSJh15/x1ZvrfU5APNvSGlDI00vIvqGyELXWGmsbJ7uxh/chl3KSuwyJma/u7EYTYIDSMdMIMF4epbmVlKkrc2MX4w82jPTgZByvKTRHyj1UssBzrJL2/xqx0YAWrNDEMzK3m8UcpxrBQFFU9zMIiB4YReDgrwyApY3IUFw9707x6EWbCOGla2ndRCMeTR1yFVH/Et2DB8jrYGC5VaUpchfaDiRIaXygnxL0Z0BrOA7S+6QO1noivK2YAV/268cy+GlJKlqBK5PJvumK67IhakoFf6B+zqChdVBOu78vKw/+Toe10XtuY3PN3mqH72vKstztFyjFjGx1BpRsvS3hMiR0M0jSVRlyFtBtCdlnXRxVZYp8dU/dGtWgRAALjf+VpdQDlRUQ+Yyuv6byPwq7Q+80A0RgEhBTQAAAABJRU5ErkJggg=="
+                    alt="Korek"
+                    title="Korek"
+                  />Korek</span
+                >
+                <span class="payment-pill"
+                  ><img
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAIAAAD8GO2jAAADVElEQVRIie2VX2xTVRzHv79zb2/X9R8r3g4G6yKlimabSgKbmfyJJKImQEx8MPHBxGeN8dFoNDz4YngxGgIBTUymhBAUQgiC6bKpMEMRNnBVIoJuXe96167t+m+9PeceH2gGRaOTQHzp9+2c/M75nPP7ne/vkJQS91Psvu7eBDQBADjniaSRzuXv+i2rd4xNc9bZ0uL3eW8OC8XS+LnRtok4d7e6BwbW9HS3edz/CUC3Gy2dyZwdPa9BtmazDzz+2IpQyO/3GYePdO7aicK8FY+nJqfmQcFnn9F1/W4AAMq1mrF334Nbt9QymWI2W1Edq3ftuGNN5aeJfKHg6Vjp6epaEsC27d+mErYQpGnlYjE4k+rYuvnfz2bb0pakKv8cpQKYTExbnx8KdoXE8Ij34P6VpdLfBEoJooYZxmgpb1BKWYz/LC1LSjm7ZZsBVC+NyUZVxy+n1vXIJYgnps1t2+f3HygdPmJmc1JKBsD9yDowJtLp2kiUPdRdjcXqcC7AOWo1rbcnODEGAEKA88UUgXNpWQ3zBBE9bWcyYm5OX+bHLR8oykJ0iLWH3O/vrp48BSD33u4Zh2qu75vd9HTl69OGogBIhR811/cZROVjxw1FMZ/YOPfKq+UTJw1VNfs3GUQLwyMUWAXGwOo738pi5bPBljdf03q7reNfArDT6dYPPwpe/lH/4TtyOpkjAKD996v6+bMA+B+TbHU4eOXi8kODwjC0l14OXhhloYidy6Gx7HWArFSsUydcz213hMMA+NSU0t5efuP12Sc3p1940c7lKdKZ/2DPDLnTz+8keElhEGLx9uJKvHDwE3vyVwh7sbgNgMrwCAFaby8URX24p/r9Of+776yQUv82ah07KpLT0DSZz7s/3qMPnZEo4HbzSJv05c4NGwIXL2n9fdKcx81qAFhsFeUDn7reersau7AQHQKj6plvnP0bS4NfQFEAwJYymQLRwtGvZKUCgJwasqXC3n2kqsznI27XxsbJ53U+NaB0hxWPh9z1jlJ3cjUWc0QiPJmUpRKpDqgq83qFaYIRtbjUUCe/fkNdu5ZfuwZG5HI5IpHaL1chBPl86qoOfv2GFEIJBFhbG08kmM8LprBlfvy1Vdxz/d//QRPQBDQB90J/AooysLYqOt1nAAAAAElFTkSuQmCC"
+                    alt="Asia"
+                    title="Asia"
+                  />Asia</span
+                >
+              </div>
+              <span class="tax-info">(کۆرەک و ئاسیا: ٥٠٠ د.ع باج)</span>
+            </div>
+            <a href="#" class="subscribe-btn">دەست پێ بکە</a>
+            <span class="spark"><span class="spark-anim"></span></span>
+          </div>
+          <div class="plan monthly" data-plan="مانگانە">
+            <div class="price">٤,٠٠٠ <span>د.ع</span></div>
+            <div class="payment-indicator">
+              <div class="payment-title">پارەدان لە ڕێگەی</div>
+              <div class="payment-pills">
+                <span class="payment-pill"
+                  ><img
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAAyElEQVR4Ae2WsQ0DIQxFr7jqahpWYIb0aWgzAbWlDJQ6EqMwDDMkLlx8uUBEBorcFa8yunc2fMR2f8alrBdewu392ltYhVpGzKeDytAIYeqQIdkq9ExVnQTFjSmwhsyHBj8ohMaaahA295NUPULtGBILGR9Ky0whxqSofXX4M5ZDczBe4aSWVbdR6jQjhxnHCOS5OZSOVXTKKKFjvAbW4ojJLPwxr3WV8AFd7n8pHDNSITTQF3iyC/vJ5uB3Upk07YmBXK+2cwm/ONnY/wcsZLIAAAAASUVORK5CYII="
+                    alt="FIB"
+                    title="FIB"
+                  />FIB</span
+                >
+                <span class="payment-pill"
+                  ><img
+                    src="https://encrypted-tbn2.gstatic.com/faviconV2?url=https://helpdesk.fast-pay.iq&client=VFE&size=64&type=FAVICON&fallback_opts=TYPE,SIZE,URL&nfrp=2"
+                    alt="Fastpay"
+                    title="Fastpay"
+                  />Fastpay</span
+                >
+                <span class="payment-pill"
+                  ><img
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y+mAAAAKlBMVEVHcEwAV7cAVrYAVrcAV7gAV7cAV7cAVrYAVrcAV7cAV7cAV7cAV7cAV7cnTKaJAAAADnRSTlMA/gwp782fGFTfbrM7iMAxh4oAAAFVSURBVCiRbVJbksMwCIvBBozh/tddYSdpd2f5SkcueqDruofYUmSJh15/x1ZvrfU5APNvSGlDI00vIvqGyELXWGmsbJ7uxh/chl3KSuwyJma/u7EYTYIDSMdMIMF4epbmVlKkrc2MX4w82jPTgZByvKTRHyj1UssBzrJL2/xqx0YAWrNDEMzK3m8UcpxrBQFFU9zMIiB4YReDgrwyApY3IUFw9707x6EWbCOGla2ndRCMeTR1yFVH/Et2DB8jrYGC5VaUpchfaDiRIaXygnxL0Z0BrOA7S+6QO1noivK2YAV/268cy+GlJKlqBK5PJvumK67IhakoFf6B+zqChdVBOu78vKw/+Toe10XtuY3PN3mqH72vKstztFyjFjGx1BpRsvS3hMiR0M0jSVRlyFtBtCdlnXRxVZYp8dU/dGtWgRAALjf+VpdQDlRUQ+Yyuv6byPwq7Q+80A0RgEhBTQAAAABJRU5ErkJggg=="
+                    alt="Korek"
+                    title="Korek"
+                  />Korek</span
+                >
+                <span class="payment-pill"
+                  ><img
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAIAAAD8GO2jAAADVElEQVRIie2VX2xTVRzHv79zb2/X9R8r3g4G6yKlimabSgKbmfyJJKImQEx8MPHBxGeN8dFoNDz4YngxGgIBTUymhBAUQgiC6bKpMEMRNnBVIoJuXe96167t+m+9PeceH2gGRaOTQHzp9+2c/M75nPP7ne/vkJQS91Psvu7eBDQBADjniaSRzuXv+i2rd4xNc9bZ0uL3eW8OC8XS+LnRtok4d7e6BwbW9HS3edz/CUC3Gy2dyZwdPa9BtmazDzz+2IpQyO/3GYePdO7aicK8FY+nJqfmQcFnn9F1/W4AAMq1mrF334Nbt9QymWI2W1Edq3ftuGNN5aeJfKHg6Vjp6epaEsC27d+mErYQpGnlYjE4k+rYuvnfz2bb0pakKv8cpQKYTExbnx8KdoXE8Ij34P6VpdLfBEoJooYZxmgpb1BKWYz/LC1LSjm7ZZsBVC+NyUZVxy+n1vXIJYgnps1t2+f3HygdPmJmc1JKBsD9yDowJtLp2kiUPdRdjcXqcC7AOWo1rbcnODEGAEKA88UUgXNpWQ3zBBE9bWcyYm5OX+bHLR8oykJ0iLWH3O/vrp48BSD33u4Zh2qu75vd9HTl69OGogBIhR811/cZROVjxw1FMZ/YOPfKq+UTJw1VNfs3GUQLwyMUWAXGwOo738pi5bPBljdf03q7reNfArDT6dYPPwpe/lH/4TtyOpkjAKD996v6+bMA+B+TbHU4eOXi8kODwjC0l14OXhhloYidy6Gx7HWArFSsUydcz213hMMA+NSU0t5efuP12Sc3p1940c7lKdKZ/2DPDLnTz+8keElhEGLx9uJKvHDwE3vyVwh7sbgNgMrwCAFaby8URX24p/r9Of+776yQUv82ah07KpLT0DSZz7s/3qMPnZEo4HbzSJv05c4NGwIXL2n9fdKcx81qAFhsFeUDn7reersau7AQHQKj6plvnP0bS4NfQFEAwJYymQLRwtGvZKUCgJwasqXC3n2kqsznI27XxsbJ53U+NaB0hxWPh9z1jlJ3cjUWc0QiPJmUpRKpDqgq83qFaYIRtbjUUCe/fkNdu5ZfuwZG5HI5IpHaL1chBPl86qoOfv2GFEIJBFhbG08kmM8LprBlfvy1Vdxz/d//QRPQBDQB90J/AooysLYqOt1nAAAAAElFTkSuQmCC"
+                    alt="Asia"
+                    title="Asia"
+                  />Asia</span
+                >
+              </div>
+              <span class="tax-info">(کۆرەک و ئاسیا: ١,٠٠٠ د.ع باج)</span>
+            </div>
+            <a href="#" class="subscribe-btn">دەست پێ بکە</a>
+          </div>
+          <div class="plan semiannual" data-plan="شەش مانگ">
+            <div class="price">١٤,٠٠٠ <span>د.ع</span></div>
+            <div class="payment-indicator">
+              <div class="payment-title">پارەدان لە ڕێگەی</div>
+              <div class="payment-pills">
+                <span class="payment-pill"
+                  ><img
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAAyElEQVR4Ae2WsQ0DIQxFr7jqahpWYIb0aWgzAbWlDJQ6EqMwDDMkLlx8uUBEBorcFa8yunc2fMR2f8alrBdewu392ltYhVpGzKeDytAIYeqQIdkq9ExVnQTFjSmwhsyHBj8ohMaaahA295NUPULtGBILGR9Ky0whxqSofXX4M5ZDczBe4aSWVbdR6jQjhxnHCOS5OZSOVXTKKKFjvAbW4ojJLPwxr3WV8AFd7n8pHDNSITTQF3iyC/vJ5uB3Upk07YmBXK+2cwm/ONnY/wcsZLIAAAAASUVORK5CYII="
+                    alt="FIB"
+                    title="FIB"
+                  />FIB</span
+                >
+                <span class="payment-pill"
+                  ><img
+                    src="https://encrypted-tbn2.gstatic.com/faviconV2?url=https://helpdesk.fast-pay.iq&client=VFE&size=64&type=FAVICON&fallback_opts=TYPE,SIZE,URL&nfrp=2"
+                    alt="Fastpay"
+                    title="Fastpay"
+                  />Fastpay</span
+                >
+                <span class="payment-pill"
+                  ><img
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y+mAAAAKlBMVEVHcEwAV7cAVrYAVrcAV7gAV7cAV7cAVrYAVrcAV7cAV7cAV7cAV7cAV7cnTKaJAAAADnRSTlMA/gwp782fGFTfbrM7iMAxh4oAAAFVSURBVCiRbVJbksMwCIvBBozh/tddYSdpd2f5SkcueqDruofYUmSJh15/x1ZvrfU5APNvSGlDI00vIvqGyELXWGmsbJ7uxh/chl3KSuwyJma/u7EYTYIDSMdMIMF4epbmVlKkrc2MX4w82jPTgZByvKTRHyj1UssBzrJL2/xqx0YAWrNDEMzK3m8UcpxrBQFFU9zMIiB4YReDgrwyApY3IUFw9707x6EWbCOGla2ndRCMeTR1yFVH/Et2DB8jrYGC5VaUpchfaDiRIaXygnxL0Z0BrOA7S+6QO1noivK2YAV/268cy+GlJKlqBK5PJvumK67IhakoFf6B+zqChdVBOu78vKw/+Toe10XtuY3PN3mqH72vKstztFyjFjGx1BpRsvS3hMiR0M0jSVRlyFtBtCdlnXRxVZYp8dU/dGtWgRAALjf+VpdQDlRUQ+Yyuv6byPwq7Q+80A0RgEhBTQAAAABJRU5ErkJggg=="
+                    alt="Korek"
+                    title="Korek"
+                  />Korek</span
+                >
+                <span class="payment-pill"
+                  ><img
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAIAAAD8GO2jAAADVElEQVRIie2VX2xTVRzHv79zb2/X9R8r3g4G6yKlimabSgKbmfyJJKImQEx8MPHBxGeN8dFoNDz4YngxGgIBTUymhBAUQgiC6bKpMEMRNnBVIoJuXe96167t+m+9PeceH2gGRaOTQHzp9+2c/M75nPP7ne/vkJQS91Psvu7eBDQBADjniaSRzuXv+i2rd4xNc9bZ0uL3eW8OC8XS+LnRtok4d7e6BwbW9HS3edz/CUC3Gy2dyZwdPa9BtmazDzz+2IpQyO/3GYePdO7aicK8FY+nJqfmQcFnn9F1/W4AAMq1mrF334Nbt9QymWI2W1Edq3ftuGNN5aeJfKHg6Vjp6epaEsC27d+mErYQpGnlYjE4k+rYuvnfz2bb0pakKv8cpQKYTExbnx8KdoXE8Ij34P6VpdLfBEoJooYZxmgpb1BKWYz/LC1LSjm7ZZsBVC+NyUZVxy+n1vXIJYgnps1t2+f3HygdPmJmc1JKBsD9yDowJtLp2kiUPdRdjcXqcC7AOWo1rbcnODEGAEKA88UUgXNpWQ3zBBE9bWcyYm5OX+bHLR8oykJ0iLWH3O/vrp48BSD33u4Zh2qu75vd9HTl69OGogBIhR811/cZROVjxw1FMZ/YOPfKq+UTJw1VNfs3GUQLwyMUWAXGwOo738pi5bPBljdf03q7reNfArDT6dYPPwpe/lH/4TtyOpkjAKD996v6+bMA+B+TbHU4eOXi8kODwjC0l14OXhhloYidy6Gx7HWArFSsUydcz213hMMA+NSU0t5efuP12Sc3p1940c7lKdKZ/2DPDLnTz+8keElhEGLx9uJKvHDwE3vyVwh7sbgNgMrwCAFaby8URX24p/r9Of+776yQUv82ah07KpLT0DSZz7s/3qMPnZEo4HbzSJv05c4NGwIXL2n9fdKcx81qAFhsFeUDn7reersau7AQHQKj6plvnP0bS4NfQFEAwJYymQLRwtGvZKUCgJwasqXC3n2kqsznI27XxsbJ53U+NaB0hxWPh9z1jlJ3cjUWc0QiPJmUpRKpDqgq83qFaYIRtbjUUCe/fkNdu5ZfuwZG5HI5IpHaL1chBPl86qoOfv2GFEIJBFhbG08kmM8LprBlfvy1Vdxz/d//QRPQBDQB90J/AooysLYqOt1nAAAAAElFTkSuQmCC"
+                    alt="Asia"
+                    title="Asia"
+                  />Asia</span
+                >
+              </div>
+              <span class="tax-info">(کۆرەک و ئاسیا: ١,٠٠٠ د.ع باج)</span>
+            </div>
+            <a href="#" class="subscribe-btn">دەست پێ بکە</a>
+          </div>
+          <div class="plan yearly" data-plan="ساڵانە">
+            <div class="price">٢٠,٠٠٠ <span>د.ع</span></div>
+            <div class="payment-indicator">
+              <div class="payment-title">پارەدان لە ڕێگەی</div>
+              <div class="payment-pills">
+                <span class="payment-pill"
+                  ><img
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAAyElEQVR4Ae2WsQ0DIQxFr7jqahpWYIb0aWgzAbWlDJQ6EqMwDDMkLlx8uUBEBorcFa8yunc2fMR2f8alrBdewu392ltYhVpGzKeDytAIYeqQIdkq9ExVnQTFjSmwhsyHBj8ohMaaahA295NUPULtGBILGR9Ky0whxqSofXX4M5ZDczBe4aSWVbdR6jQjhxnHCOS5OZSOVXTKKKFjvAbW4ojJLPwxr3WV8AFd7n8pHDNSITTQF3iyC/vJ5uB3Upk07YmBXK+2cwm/ONnY/wcsZLIAAAAASUVORK5CYII="
+                    alt="FIB"
+                    title="FIB"
+                  />FIB</span
+                >
+                <span class="payment-pill"
+                  ><img
+                    src="https://encrypted-tbn2.gstatic.com/faviconV2?url=https://helpdesk.fast-pay.iq&client=VFE&size=64&type=FAVICON&fallback_opts=TYPE,SIZE,URL&nfrp=2"
+                    alt="Fastpay"
+                    title="Fastpay"
+                  />Fastpay</span
+                >
+                <span class="payment-pill"
+                  ><img
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y+mAAAAKlBMVEVHcEwAV7cAVrYAVrcAV7gAV7cAV7cAVrYAVrcAV7cAV7cAV7cAV7cAV7cnTKaJAAAADnRSTlMA/gwp782fGFTfbrM7iMAxh4oAAAFVSURBVCiRbVJbksMwCIvBBozh/tddYSdpd2f5SkcueqDruofYUmSJh15/x1ZvrfU5APNvSGlDI00vIvqGyELXWGmsbJ7uxh/chl3KSuwyJma/u7EYTYIDSMdMIMF4epbmVlKkrc2MX4w82jPTgZByvKTRHyj1UssBzrJL2/xqx0YAWrNDEMzK3m8UcpxrBQFFU9zMIiB4YReDgrwyApY3IUFw9707x6EWbCOGla2ndRCMeTR1yFVH/Et2DB8jrYGC5VaUpchfaDiRIaXygnxL0Z0BrOA7S+6QO1noivK2YAV/268cy+GlJKlqBK5PJvumK67IhakoFf6B+zqChdVBOu78vKw/+Toe10XtuY3PN3mqH72vKstztFyjFjGx1BpRsvS3hMiR0M0jSVRlyFtBtCdlnXRxVZYp8dU/dGtWgRAALjf+VpdQDlRUQ+Yyuv6byPwq7Q+80A0RgEhBTQAAAABJRU5ErkJggg=="
+                    alt="Korek"
+                    title="Korek"
+                  />Korek</span
+                >
+                <span class="payment-pill"
+                  ><img
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAIAAAD8GO2jAAADVElEQVRIie2VX2xTVRzHv79zb2/X9R8r3g4G6yKlimabSgKbmfyJJKImQEx8MPHBxGeN8dFoNDz4YngxGgIBTUymhBAUQgiC6bKpMEMRNnBVIoJuXe96167t+m+9PeceH2gGRaOTQHzp9+2c/M75nPP7ne/vkJQS91Psvu7eBDQBADjniaSRzuXv+i2rd4xNc9bZ0uL3eW8OC8XS+LnRtok4d7e6BwbW9HS3edz/CUC3Gy2dyZwdPa9BtmazDzz+2IpQyO/3GYePdO7aicK8FY+nJqfmQcFnn9F1/W4AAMq1mrF334Nbt9QymWI2W1Edq3ftuGNN5aeJfKHg6Vjp6epaEsC27d+mErYQpGnlYjE4k+rYuvnfz2bb0pakKv8cpQKYTExbnx8KdoXE8Ij34P6VpdLfBEoJooYZxmgpb1BKWYz/LC1LSjm7ZZsBVC+NyUZVxy+n1vXIJYgnps1t2+f3HygdPmJmc1JKBsD9yDowJtLp2kiUPdRdjcXqcC7AOWo1rbcnODEGAEKA88UUgXNpWQ3zBBE9bWcyYm5OX+bHLR8oykJ0iLWH3O/vrp48BSD33u4Zh2qu75vd9HTl69OGogBIhR811/cZROVjxw1FMZ/YOPfKq+UTJw1VNfs3GUQLwyMUWAXGwOo738pi5bPBljdf03q7reNfArDT6dYPPwpe/lH/4TtyOpkjAKD996v6+bMA+B+TbHU4eOXi8kODwjC0l14OXhhloYidy6Gx7HWArFSsUydcz213hMMA+NSU0t5efuP12Sc3p1940c7lKdKZ/2DPDLnTz+8keElhEGLx9uJKvHDwE3vyVwh7sbgNgMrwCAFaby8URX24p/r9Of+776yQUv82ah07KpLT0DSZz7s/3qMPnZEo4HbzSJv05c4NGwIXL2n9fdKcx81qAFhsFeUDn7reersau7AQHQKj6plvnP0bS4NfQFEAwJYymQLRwtGvZKUCgJwasqXC3n2kqsznI27XxsbJ53U+NaB0hxWPh9z1jlJ3cjUWc0QiPJmUpRKpDqgq83qFaYIRtbjUUCe/fkNdu5ZfuwZG5HI5IpHaL1chBPl86qoOfv2GFEIJBFhbG08kmM8LprBlfvy1Vdxz/d//QRPQBDQB90J/AooysLYqOt1nAAAAAElFTkSuQmCC"
+                    alt="Asia"
+                    title="Asia"
+                  />Asia</span
+                >
+              </div>
+              <span class="tax-info">(کۆرەک و ئاسیا: ٢,٠٠٠ د.ع باج)</span>
+            </div>
+            <a href="#" class="subscribe-btn">دەست پێ بکە</a>
+          </div>
+        </div>
+      </div>
+      <div class="contact">
+        <a
+          href="https://wa.me/9647781404523"
+          target="_blank"
+          rel="noopener"
+          style="display: inline-flex; align-items: center; gap: 6px"
+        >
+          پەیوەندی بکە لە واتساپ
+        </a>
+        <span style="margin: 0 8px">|</span>
+        <span style="display: inline-flex; align-items: center; gap: 6px">
+          <img
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAUVBMVEVHcEzz9PP3+Pfq7er19vb//v/8/PyltKrx+PKz5b1z04cwxlYMwUMAvCkAvjMAvzoDwUBGTUiH2JiY3aXX8Nxcznbo6ulJymfQ1NHJzcq9wr8gaKU6AAAAG3RSTlMAOlmJ2f//Lvj+/v///////xX+/v7+rP56aF7BK/qjAAABgklEQVR4AX2Sh5qEMAiEbYyJqXa993/QAza5z2v7b8UMMKDNN9qu77u2+Yd+oMLQ/3UMeoCfktHIVTs5791kRWvGb73BV6YQU2ZSDJPo28c5hzYk/0UKlghfipnzl+C/ERZWVMHA59H7nL8pVp6mUTqp7310Ln1TbESdCtgQJ0fO2J+KnNl4cbhGnx0b3aJ/EO1rkoPIZZ9WAuCeNhLnHGrRBJUDtH53YdQmyEaWL1Lh+yCSxEsoeQn4btJr27kZQYtclym279uSqqMI1lTntqpI6VlhVg9M9gArsg92Cal6mHlPdfx8Emg75S6YV9dNN3WAaskTsi0Zh6bEMUH2cLHLqvDsA4LsTjzeerNhqvscJpYwa5Q9gS0w/XODKbjF2jPK3PXJrIMWcooxiyGSAkKvHX+QHICPRhnYQ0mr5LADpYFuShunWIeJ2VI5Z25gM8TA7jFEfu9Whr2awoEKi8ymYmAYm4oBh8fHfA8vESRme5URxz0XN9cxMMelcYWDt3wCfLshX3540l4AAAAASUVORK5CYII="
+            alt="WhatsApp"
+            style="width: 1.2em; height: 1.2em; vertical-align: middle"
+          />
+        </span>
+      </div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        effect: "cards",
+        grabCursor: true,
+        navigation: {
+          nextEl: ".swiper-button-prev",
+          prevEl: ".swiper-button-next",
+        },
+      });
+    </script>
+  </body>
+</html>

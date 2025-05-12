@@ -256,8 +256,8 @@
         user-select: text;
       }
       .app-buttons {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(200px, 1fr));
+        display: flex;
+        flex-direction: row;
         gap: 18px;
         margin-top: 10px;
         margin-bottom: 10px;
@@ -268,7 +268,7 @@
 
       @media (max-width: 600px) {
         .app-buttons {
-          grid-template-columns: repeat(2, minmax(140px, 1fr));
+          flex-direction: row;
           gap: 12px;
         }
       }

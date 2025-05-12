@@ -866,40 +866,27 @@
         );
       }
       .swiper {
-        width: 100%;
-        height: 100%;
-        position: relative;
-        margin: 0 auto;
+        width: 80vw;
+        height: 80vh;
+        margin: auto;
+        overflow: hidden;
+        max-width: 350px; /* match your mobile screenshot width */
+        border-radius: 40px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
       }
-      .swiper-wrapper {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+
+      @media (max-width: 767px) {
+        .swiper {
+          max-width: none;
+        }
       }
 
       .swiper-slide {
-        width: auto;
-        height: 100%;
         display: flex;
-        align-items: center;
         justify-content: center;
-        border-radius: 18px;
-        overflow: hidden;
-      }
-
-      .swiper-slide img {
-        width: auto;
-        height: 100%;
-        object-fit: contain;
-        border-radius: 18px;
-        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
-      }
-
-      .swiper-button-next,
-      .swiper-button-prev {
-        color: white;
+        align-items: center;
+        background: #000; /* match phone bezel */
+        padding: 0;
       }
 
       @keyframes shine-move {
@@ -946,6 +933,7 @@
       }
 
       /* Vertical Navigation */
+      /*
       .vertical-nav {
         position: fixed;
         top: 50%;
@@ -1056,6 +1044,7 @@
           );
         }
       }
+      */
 
       /* Hero Social Area */
       .hero-social {
@@ -1120,16 +1109,19 @@
         gap: 32px;
       }
 
+      /* Update social media icon styles */
       .hero-social .social-links a {
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 36px;
-        height: 36px;
+        width: 32px; /* Reduced from 36px */
+        height: 32px; /* Reduced from 36px */
         background: rgba(255, 255, 255, 0.05);
         border-radius: 50%;
         transition: all 0.3s ease;
         border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 6px; /* Reduced from 8px */
+        overflow: hidden; /* Ensure content stays within circle */
       }
 
       .hero-social .social-links a:hover {
@@ -1137,6 +1129,35 @@
         transform: translateY(-2px) scale(1.1);
         box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
         border-color: transparent;
+      }
+
+      .hero-social .social-links img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        transition: filter 0.3s ease;
+      }
+
+      /* Special handling for Instagram and TikTok to ensure circular appearance */
+      .hero-social .social-links .instagram img,
+      .hero-social .social-links .tiktok img {
+        width: 90%;
+        height: 90%;
+        object-fit: cover;
+        border-radius: 50%;
+        background: #fff;
+      }
+
+      .hero-social .social-links .instagram img {
+        padding: 2px;
+      }
+
+      .hero-social .social-links .tiktok img {
+        padding: 1px;
+      }
+
+      .hero-social .social-links a:hover img {
+        filter: brightness(0) saturate(100%) invert(20%) sepia(20%) saturate(2000%) hue-rotate(240deg) brightness(90%) contrast(90%);
       }
 
       /* Brand colors for icons with modern opacity */
@@ -1248,15 +1269,16 @@
           padding: 18px 6px 14px 6px;
         }
         .screenshot-carousel {
-          height: calc(100vh - 140px);
+          height: calc(80vh - 140px);
         }
         .screenshot-carousel img {
-          height: calc(100vh - 240px);
-          min-height: 180px;
+          height: calc(80vh - 240px);
+          min-height: 20px;
           /* max-height: 320px; */
         }
 
         /* Convert vertical nav to horizontal nav */
+        /*
         .vertical-nav {
           position: fixed;
           top: auto;
@@ -1301,6 +1323,7 @@
             rgba(255, 255, 255, 0) 100%
           );
         }
+        */
       }
 
       @media (max-width: 600px) {
@@ -1475,6 +1498,7 @@
     </script>
   </head>
   <body>
+    <!-- Navigation bar commented out for future use
     <nav class="vertical-nav">
       <a href="#" title="سەرەتا">
         <svg
@@ -1520,6 +1544,7 @@
         <span>نرخ</span>
       </a>
     </nav>
+    -->
     <section class="section hero-section">
       <div class="hero-image-col">
         <img class="hero-image" src="https://cdn.jsdelivr.net/gh/MuhammadBayiz/chichicinema@main/hero.jpg" alt="چیچی پڵەس" />
@@ -1559,11 +1584,7 @@
               target="_blank"
               rel="noopener"
             >
-              <svg viewBox="0 0 24 24">
-                <rect x="3" y="3" width="18" height="18" rx="5" />
-                <circle cx="12" cy="12" r="5" />
-                <circle cx="17" cy="7" r="1" />
-              </svg>
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/2048px-Instagram_logo_2016.svg.png" alt="Instagram" />
             </a>
             <a
               href="#"
@@ -1572,7 +1593,7 @@
               target="_blank"
               rel="noopener"
             >
-              <svg viewBox="0 0 24 24"><path d="M4 12l16-6-4 12-4-3-4 3z" /></svg>
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Telegram_logo.svg/2048px-Telegram_logo.svg.png" alt="Telegram" />
             </a>
             <a
               href="#"
@@ -1581,9 +1602,7 @@
               target="_blank"
               rel="noopener"
             >
-              <svg viewBox="0 0 24 24">
-                <path d="M9 17a4 4 0 1 1 4-4V5h3a3 3 0 0 0 3 3" />
-              </svg>
+              <img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Tiktok1.png" alt="TikTok" />
             </a>
             <a
               href="#"
@@ -1592,11 +1611,7 @@
               target="_blank"
               rel="noopener"
             >
-              <svg viewBox="0 0 24 24">
-                <path
-                  d="M17 2h-3a4 4 0 0 0-4 4v3H7v4h3v9h4v-9h3l1-4h-4V6a1 1 0 0 1 1-1h3z"
-                />
-              </svg>
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/1024px-Facebook_Logo_%282019%29.png" alt="Facebook" />
             </a>
           </div>
         </div>
@@ -1607,23 +1622,24 @@
     <section class="social-screenshot-section">
       <div class="screenshot-heading">وێنەکان و زانیاری</div>
       <div class="screenshot-desc">
-        ئەمە گالێرییەکە لە بەرنامەکەمان کە پیشان دەدات چۆن بەرنامەکە کار دەکات
+        ئەمە گالێری بەرنامەکەمانە، چاوپێخشاندنێک بە بەرنامەکەمان پیشان دەدات.
       </div>
-      <div class="swiper-button-prev"></div>
-      <div class="swiper mySwiper">
+      <div class="swiper">
         <div class="swiper-wrapper">
           <img class="swiper-slide" src="https://cdn.jsdelivr.net/gh/MuhammadBayiz/chichicinema@main/screenshot1.png" alt="Screenshot 1" />
           <img class="swiper-slide" src="https://cdn.jsdelivr.net/gh/MuhammadBayiz/chichicinema@main/screenshot2.png" alt="Screenshot 2" />
           <img class="swiper-slide" src="https://cdn.jsdelivr.net/gh/MuhammadBayiz/chichicinema@main/screenshot3.png" alt="Screenshot 3" />
           <img class="swiper-slide" src="https://cdn.jsdelivr.net/gh/MuhammadBayiz/chichicinema@main/screenshot4.png" alt="Screenshot 4" />
-
-          <img class="swiper-slide" src="https://cdn.jsdelivr.net/gh/MuhammadBayiz/chichicinema@main/screenshot1.png" alt="Screenshot 1" />
-          <img class="swiper-slide" src="https://cdn.jsdelivr.net/gh/MuhammadBayiz/chichicinema@main/screenshot2.png" alt="Screenshot 2" />
-          <img class="swiper-slide" src="https://cdn.jsdelivr.net/gh/MuhammadBayiz/chichicinema@main/screenshot3.png" alt="Screenshot 3" />
-          <img class="swiper-slide" src="https://cdn.jsdelivr.net/gh/MuhammadBayiz/chichicinema@main/screenshot4.png" alt="Screenshot 4" />
         </div>
+      
+        <!-- Pagination -->
+        <div class="swiper-pagination"></div>
+      
+        <!-- Navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
       </div>
-      <div class="swiper-button-next"></div>
+      
     </section>
 
     <section class="section plans-section">
@@ -1819,17 +1835,33 @@
       </div>
     </section>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-    <!-- Initialize Swiper -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <script>
-      var swiper = new Swiper(".mySwiper", {
-        effect: "cards",
-        grabCursor: true,
-        navigation: {
-          nextEl: ".swiper-button-prev",
-          prevEl: ".swiper-button-next",
+      const swiper = new Swiper('.swiper', {
+        loop: true,
+        speed: 500,
+        slidesPerView: 1,
+        spaceBetween: 10,
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false,
         },
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        breakpoints: {
+          768: {
+            slidesPerView: 1.5,
+            centeredSlides: true,
+          }
+        }
       });
-    </script>
+          </script>
+        
   </body>
 </html>

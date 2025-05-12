@@ -82,6 +82,7 @@
         -ms-user-select: none;
         user-select: none;
         touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent; /* Added to remove tap highlight */
       }
       body {
         font-family: "IBM Plex Sans Arabic", Arial, sans-serif;
@@ -287,6 +288,7 @@
         font-size: 1rem;
         box-shadow: 0 2px 8px #0002;
         transition: background 0.2s, transform 0.2s;
+        -webkit-tap-highlight-color: transparent; /* Added to remove tap highlight */
       }
       .app-btn:hover {
         background: var(--gold);
@@ -476,6 +478,7 @@
         justify-content: center;
         box-shadow: 0 2px 8px #0002;
         transition: background 0.2s, color 0.2s;
+        -webkit-tap-highlight-color: transparent; /* Added to remove tap highlight */
       }
       .screenshot-modal-close:hover {
         background: #ffd700;
@@ -711,6 +714,7 @@
         font-weight: 700;
         font-size: 1.08rem;
         transition: background 0.2s, transform 0.2s;
+        -webkit-tap-highlight-color: transparent; /* Added to remove tap highlight */
       }
       .subscribe-btn:hover {
         background: linear-gradient(45deg, #ffd700, #ffd700cc);
@@ -1114,14 +1118,15 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 32px; /* Reduced from 36px */
-        height: 32px; /* Reduced from 36px */
+        width: 32px;
+        height: 32px;
         background: rgba(255, 255, 255, 0.05);
         border-radius: 50%;
         transition: all 0.3s ease;
         border: 1px solid rgba(255, 255, 255, 0.1);
-        padding: 6px; /* Reduced from 8px */
-        overflow: hidden; /* Ensure content stays within circle */
+        padding: 6px;
+        overflow: hidden;
+        -webkit-tap-highlight-color: transparent; /* Added to remove tap highlight */
       }
 
       .hero-social .social-links a:hover {
